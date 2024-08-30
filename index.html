@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investment Property Calculator</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  </head>
+  <body>
+    <div class="calculator-container">
+      <h1>Investment Property Calculator</h1>
+
+      <div class="section-wrapper">
+        <section class="property-details">
+          <h2><i class="fas fa-home"></i> Property Details</h2>
+          <div class="input-group">
+            <label for="purchasePrice">Purchase price:</label>
+            <input type="number" id="purchasePrice" name="purchasePrice" />
+          </div>
+          <div class="input-group">
+            <label for="deposit">Deposit (%):</label>
+            <input type="number" id="deposit" name="deposit" />
+          </div>
+          <div class="input-group">
+            <label for="state">State:</label>
+            <select id="state" name="state">
+              <option value="WA">WA</option>
+              <!-- Add other states as needed -->
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="ownershipType">Ownership Type:</label>
+            <select id="ownershipType" name="ownershipType">
+              <option value="individual">Individual</option>
+              <option value="company">Company</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="bedrooms">Bedrooms:</label>
+            <select id="bedrooms" name="bedrooms">
+              <option value="studio">Studio</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4+">4+</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="furnished">Furnished/unfurnished:</label>
+            <select id="furnished" name="furnished">
+              <option value="furnished">Furnished</option>
+              <option value="unfurnished">Unfurnished</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="furnitureCost">Furniture cost:</label>
+            <input type="number" id="furnitureCost" name="furnitureCost" />
+          </div>
+        </section>
+      </div>
+
+      <div class="section-wrapper">
+        <section class="property-income">
+          <h2><i class="fas fa-money-bill-wave"></i> Property Income</h2>
+          <div class="input-group">
+            <label for="weeksVacant">Weeks vacant:</label>
+            <input type="number" id="weeksVacant" name="weeksVacant" />
+          </div>
+          <div class="input-group">
+            <label for="rentPerWeek">Rent per week:</label>
+            <input type="number" id="rentPerWeek" name="rentPerWeek" />
+          </div>
+          <div class="output-group">
+            <label>Total income (per annum):</label>
+            <span id="totalIncome"></span>
+          </div>
+        </section>
+      </div>
+
+      <div class="section-wrapper">
+        <section class="property-expenses">
+          <h2><i class="fas fa-file-invoice-dollar"></i> Property Expenses</h2>
+          <div class="input-group">
+            <label for="insurance">Insurance (per annum):</label>
+            <input type="number" id="insurance" name="insurance" />
+          </div>
+          <div class="input-group">
+            <label for="legalFees">Legal fees (Conveyancing costs):</label>
+            <input type="number" id="legalFees" name="legalFees" />
+          </div>
+          <div class="input-group">
+            <label for="propertyManagementFee">Property management fee (%):</label>
+            <input type="number" id="propertyManagementFee" name="propertyManagementFee" />
+          </div>
+          <div class="output-group">
+            <label>Management fee cost:</label>
+            <span id="managementFee"></span>
+          </div>
+          <div class="input-group">
+            <label for="bodyCorporate">Body corporate (per annum):</label>
+            <input type="number" id="bodyCorporate" name="bodyCorporate" />
+          </div>
+          <div class="input-group">
+            <label for="councilRates">Council and water rates:</label>
+            <input type="number" id="councilRates" name="councilRates" />
+          </div>
+          <div class="input-group">
+            <label for="loanType">Loan type:</label>
+            <select id="loanType" name="loanType">
+              <option value="interestOnly">Interest only</option>
+              <option value="principalAndInterest">Principal and Interest</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="loanInterestRate">Loan interest rate (%):</label>
+            <input type="number" id="loanInterestRate" name="loanInterestRate" step="0.01" />
+          </div>
+          <div class="input-group">
+            <label for="paymentFrequency">Payment Frequency:</label>
+            <select id="paymentFrequency" name="paymentFrequency">
+              <option value="annual">Annual</option>
+              <option value="monthly">Monthly</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="loanDuration">Loan Duration (years):</label>
+            <input type="range" id="loanDuration" name="loanDuration" min="1" max="50" value="30" step="1">
+            <span id="loanDurationValue">30</span>
+          </div>
+          <div class="output-group">
+            <label>Interest expense:</label>
+            <span id="interestExpense"></span>
+          </div>
+          <div class="output-group">
+            <label>Principal Repayment:</label>
+            <span id="principalRepayment"></span>
+          </div>
+          <div class="output-group">
+            <label>Total cash expenses:</label>
+            <span id="totalExpenses"></span>
+          </div>
+        </section>
+      </div>
+
+      <div class="section-wrapper">
+        <section class="results">
+          <h2><i class="fas fa-chart-line"></i> Results</h2>
+          <div class="output-group">
+            <label>Net cash position (before tax):</label>
+            <span id="netCashPosition"></span>
+          </div>
+          <div class="output-group">
+            <label>After tax result:</label>
+            <span id="afterTaxResult"></span>
+          </div>
+          <div class="output-group">
+            <label>Weekly cash flow:</label>
+            <span id="weeklyCashFlow"></span>
+          </div>
+        </section>
+      </div>
+
+      <div class="section-wrapper">
+        <section class="additional-details">
+          <h2><i class="fas fa-info-circle"></i> Additional Details</h2>
+          <div class="input-group">
+            <label for="isFirstHomeBuyer">Are you a first home buyer?</label>
+            <select id="isFirstHomeBuyer" name="isFirstHomeBuyer">
+              <option value="false">No</option>
+              <option value="true">Yes</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="propertyType">Property type:</label>
+            <select id="propertyType" name="propertyType">
+              <option value="Investment">Investment</option>
+              <option value="Primary residence">Primary residence</option>
+              <option value="Vacant Land">Vacant Land</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="isEstablishedHome">Are you purchasing:</label>
+            <select id="isEstablishedHome" name="isEstablishedHome">
+              <option value="true">Established Home</option>
+              <option value="false">New Home</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="isForeignPurchaser">Are you a foreign purchaser?</label>
+            <select id="isForeignPurchaser" name="isForeignPurchaser">
+              <option value="false">No</option>
+              <option value="true">Yes</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="isNorthOf26thParallel">Property Location:</label>
+            <select id="isNorthOf26thParallel" name="isNorthOf26thParallel">
+              <option value="false">South of the 26th parallel</option>
+              <option value="true">North of the 26th parallel (from Denham 6537)</option>
+            </select>
+          </div>
+        </section>
+      </div>
+
+      <div class="section-wrapper">
+        <section class="purchase-costs">
+          <h2><i class="fas fa-shopping-cart"></i> Purchase Costs</h2>
+          <div class="output-group">
+            <label>Mortgage Registration Fee:</label>
+            <span id="mortgageRegistrationFee"></span>
+          </div>
+          <div class="output-group">
+            <label>Transfer Fee:</label>
+            <span id="transferFee"></span>
+          </div>
+          <div class="output-group">
+            <label>Stamp duty:</label>
+            <span id="stampDuty"></span>
+          </div>
+          <div class="output-group">
+            <label>Total capital required:</label>
+            <span id="totalCapitalRequired"></span>
+          </div>
+        </section>
+      </div>
+
+      <div class="section-wrapper">
+        <section class="government-grants">
+          <h2><i class="fas fa-gift"></i> Government Grants</h2>
+          <div class="output-group">
+            <label>First Home Owner Grant:</label>
+            <span id="firstHomeOwnerGrant"></span>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script type="module">
+      import RentalYieldCalculator from './js/calculator.js';
+      import UI from './js/ui.js';
+    
+      document.addEventListener('DOMContentLoaded', function() {
+        const calculator = new RentalYieldCalculator();
+        const ui = new UI(calculator);
+        ui.initializeEventListeners();
+    
+        const loanDurationSlider = document.getElementById('loanDuration');
+        const loanDurationValue = document.getElementById('loanDurationValue');
+    
+        loanDurationSlider.addEventListener('input', function() {
+          loanDurationValue.textContent = this.value;
+          calculator.setProperty('loanDuration', this.value);
+          ui.updateResults();
+        });
+      });
+    </script>
+
+    <script type="module" src="js/ui.js"></script>
+  </body>
+</html>
