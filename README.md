@@ -1,5 +1,7 @@
 # Rental Yield Calculator
 
+![image](https://github.com/user-attachments/assets/ea99fd51-7184-4d96-9116-54a9ce6334cb)
+
 A simple web-based tool to help investors estimate the financial aspects of purchasing and managing an investment property.
 
 ## Features
@@ -23,11 +25,11 @@ A simple web-based tool to help investors estimate the financial aspects of purc
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/investment-property-calculator.git
+   git clone https://github.com/uwaysm/rental-yield-calculator
    ```
 2. Navigate to the project directory:
    ```bash
-   cd investment-property-calculator
+   cd rental-yield-calculator
    ```
 3. Open `index.html` in your web browser.
 
